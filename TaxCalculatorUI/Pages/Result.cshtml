@@ -1,0 +1,30 @@
+﻿@page
+@model TaxCalculatorUI.Pages.ResultModel
+
+@{
+    ViewData["Title"] = "Tax Calculation Result";
+}
+
+@if (!string.IsNullOrEmpty(Model.TaxCalculationResponse.ErrorMessage))
+{
+    <div class="text-center">
+        <h5 class="display-5">Unable to calculate tax.</h5>
+        <p>Error: @Model.TaxCalculationResponse.ErrorMessage</p>
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-primary" asp-page="./Index">Back</a>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h5 class="display-5">Your tax calculation result is @Model.TaxCalculationResponse.Result.ToString("0.00")</h5>
+        <p>Annual income: @Model.TaxCalculationResponse.AnnualIncome.ToString("0.00")</p>
+        <p>Postal code  : @Model.TaxCalculationResponse.PostalCode</p>
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-primary" asp-page="./Index">New calculation</a>
+    </div>
+}

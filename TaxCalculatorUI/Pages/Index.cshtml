@@ -1,0 +1,30 @@
+﻿@page
+@model TaxCalculatorUI.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h4>Tax Calculation</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TaxCalculation.PostalCode" class="control-label">Postal Code</label>
+                <input asp-for="TaxCalculation.PostalCode" class="form-control" placeholder="Enter a postal code" />
+                <span asp-validation-for="TaxCalculation.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxCalculation.AnnualIncome" class="control-label">Annual Income</label>
+                <input asp-for="TaxCalculation.AnnualIncome" class="form-control" placeholder="Enter your annual income" />
+                <span asp-validation-for="TaxCalculation.AnnualIncome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="submit" value="Calculate" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
